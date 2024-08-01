@@ -5,6 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
+from selenium.common.exceptions import NoSuchElementException
+
+from selenium.webdriver.common.action_chains import ActionChains
 from collections import OrderedDict
 import time
 import os
@@ -41,7 +44,7 @@ def login(driver, email, pswd):
         capture_screenshot(driver, "after_login")
         
         # Wait for the homepage to load
-        WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.ID, "global-nav"))
         )
         print("Successfully logged in")
@@ -56,7 +59,7 @@ def go_to_skills_page(driver, username):
     
     # Wait for the page to finish loading
     try:
-        WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'scaffold-finite-scroll')]"))
         )
     except TimeoutException:
@@ -66,6 +69,10 @@ def go_to_skills_page(driver, username):
     capture_screenshot(driver, "skills_page")
     print_page_source(driver)
     print("Current URL:", driver.current_url)
+    
+    # Debug: Check for skill containers
+    skill_containers = driver.find_elements(By.XPATH, "//div[contains(@class, 'display-flex') and contains(@class, 'flex-row') and contains(@class, 'justify-space-between')]")
+    print(f"Found {len(skill_containers)} skill containers")
 
 def find_skills_container(driver):
     print("Searching for skills container...")
@@ -91,7 +98,7 @@ def find_skills_container(driver):
     print_page_source(driver)
     return None
 
-def safe_find_elements(driver, username, by, value, timeout=10):
+def safe_find_elements(driver, by, value, timeout=10):
     try:
         elements = WebDriverWait(driver, timeout).until(
             EC.presence_of_all_elements_located((by, value))
@@ -105,34 +112,14 @@ def safe_find_elements(driver, username, by, value, timeout=10):
         print(f"Error: {str(e)}")
         return []
     
-    # Wait for the page to finish loading
-    try:
-        WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'scaffold-finite-scroll')]"))
-        )
-    except TimeoutException:
-        print("Page load timeout. Proceeding anyway.")
-    
-    time.sleep(10)  # Wait additional time for any dynamic content to load
-    capture_screenshot(driver, "skills_page")
-    print_page_source(driver)
-    print("Current URL:", driver.current_url)
-
-def clean_skill_text(text):
-    # Remove any text related to endorsements or assessments
-    text = re.sub(r'\d+\s+endorsements?', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'Passed LinkedIn Skill Assessment', '', text, flags=re.IGNORECASE)
-    # Remove any text in parentheses (often contains additional info we don't want)
-    text = re.sub(r'\s*\([^)]*\)', '', text)
-    return text.strip()
 
 def get_skills(driver):
     print("Attempting to extract skills...")
     
     # Wait for the skills section to load
     try:
-        WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//section[contains(@class, 'artdeco-card')]//div[contains(@class, 'pvs-list__container')]"))
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//section[contains(@class, 'artdeco-card')]"))
         )
     except TimeoutException:
         print("Timeout waiting for skills section to load.")
@@ -148,25 +135,21 @@ def get_skills(driver):
             break
         last_height = new_height
 
-    # Extract skills using JavaScript, preserving order
+    # Extract skills using JavaScript, focusing on elements with both skill text and edit button
     skills = driver.execute_script("""
-        var skillElements = document.querySelectorAll('section.artdeco-card div.pvs-list__container span.visually-hidden');
-        return Array.from(skillElements)
-            .map(el => el.textContent.trim())
-            .filter(text => text && !text.includes('experience') && !text.includes('endorsement'));
+        var skillContainers = document.querySelectorAll('div.display-flex.flex-row.justify-space-between');
+        return Array.from(skillContainers).map(container => {
+            var skillElement = container.querySelector('a[data-field="skill_page_skill_topic"] span[aria-hidden="true"]');
+            var editButton = container.querySelector('a[id^="navigation-add-edit-deeplink-edit-skills"]');
+            if (skillElement && editButton) {
+                return skillElement.textContent.trim();
+            }
+            return null;
+        }).filter(skill => skill);
     """)
 
-    # Clean skills while preserving order
-    cleaned_skills = OrderedDict()
-    for skill in skills:
-        cleaned_skill = clean_skill_text(skill)
-        if cleaned_skill and cleaned_skill not in cleaned_skills:
-            cleaned_skills[cleaned_skill] = None
-
-    skills = list(cleaned_skills.keys())
-
     if skills:
-        print(f"Found {len(skills)} unique skills:")
+        print(f"Found {len(skills)} skills:")
         for i, skill in enumerate(skills, 1):
             print(f"{i}. {skill}")
         
@@ -180,6 +163,15 @@ def get_skills(driver):
         print_page_source(driver)
 
     return skills
+
+def clean_skill_text(text):
+    # Remove any text related to endorsements or assessments
+    text = re.sub(r'\d+\s+endorsements?', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Passed LinkedIn Skill Assessment', '', text, flags=re.IGNORECASE)
+    # Remove any text in parentheses (often contains additional info we don't want)
+    text = re.sub(r'\s*\([^)]*\)', '', text)
+    return text.strip()
+
 
 def main():
     chrome_driver_path = os.getenv("CHROME_DRIVER_PATH")
