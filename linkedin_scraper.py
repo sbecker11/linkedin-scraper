@@ -1,133 +1,221 @@
-import os
-import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException
-from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import WebDriverException
+from collections import OrderedDict
 import time
-from click_logger import ClickLogger
+import os
+import re
+import json
 
+def capture_screenshot(driver, filename):
+    driver.save_screenshot(f"{filename}.png")
+    print(f"Screenshot saved as {filename}.png")
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
+def print_page_source(driver):
+    print("Current page source:")
+    print(driver.page_source[:1000])  # Print first 1000 characters to avoid overwhelming output
+    print("...")
 
-click_logger = ClickLogger('./click_logger.txt')
-
-# Read the contents of absoluteXPath.js into a string variable
-with open('./absoluteXPath.js', 'r') as file:
-    absoluteXPath_js_str = file.read()
-
-def getElementXPath(driver, element):
-    """Get the XPath of a given element using the JavaScript function."""
-    try:
-        # Ensure the absoluteXPath function is injected
-        driver.execute_script(absoluteXPath_js_str)
-        # Now use the function to get the XPath
-        xpath = driver.execute_script("return absoluteXPath(arguments[0]);", element)
-        logging.debug(f"Generated XPath: {xpath}")
-        return xpath
-    except Exception as e:
-        logging.error(f"Error generating XPath: {str(e)}")
-        return None
+def login(driver, email, pswd):
+    print("Attempting to log in...")
+    driver.get("https://www.linkedin.com/login")
+    capture_screenshot(driver, "login_page")
     
-def wait_for_click(driver, timeout=10):
-    """Wait for a click event on any element."""
-    start_time = time.time()
-    while time.time() - start_time < timeout:
+    try:
+        username_field = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "username"))
+        )
+        username_field.send_keys(email)
+        
+        password_field = driver.find_element(By.ID, "password")
+        password_field.send_keys(pswd)
+        
+        login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
+        login_button.click()
+        
+        print("Login form submitted")
+        capture_screenshot(driver, "after_login")
+        
+        # Wait for the homepage to load
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.ID, "global-nav"))
+        )
+        print("Successfully logged in")
+    except Exception as e:
+        print(f"Login failed: {str(e)}")
+        capture_screenshot(driver, "login_error")
+        print_page_source(driver)
+
+def go_to_skills_page(driver, username):
+    print("Navigating to skills page...")
+    driver.get(f"https://www.linkedin.com/in/{username}/details/skills/")
+    
+    # Wait for the page to finish loading
+    try:
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'scaffold-finite-scroll')]"))
+        )
+    except TimeoutException:
+        print("Page load timeout. Proceeding anyway.")
+    
+    time.sleep(10)  # Wait additional time for any dynamic content to load
+    capture_screenshot(driver, "skills_page")
+    print_page_source(driver)
+    print("Current URL:", driver.current_url)
+
+def find_skills_container(driver):
+    print("Searching for skills container...")
+    possible_xpaths = [
+        "//section[contains(@class, 'skills')]",
+        "//section[contains(@class, 'artdeco-card')]",
+        "//div[contains(@class, 'scaffold-finite-scroll__content')]",
+        "//div[contains(@class, 'pvs-list__container')]"
+    ]
+    
+    for xpath in possible_xpaths:
         try:
-            # Wait for a very short time to see if any element has been clicked
-            element = WebDriverWait(driver, 0.1).until(EC.element_to_be_clickable((By.XPATH, "//*[@clicked='true']")))
-            return element
+            skills_container = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, xpath))
+            )
+            print(f"Skills container found using XPath: {xpath}")
+            return skills_container
         except TimeoutException:
-            # No click detected, continue waiting
-            pass
-    # If we get here, no click was detected within the timeout period
+            print(f"XPath {xpath} not found. Trying next...")
+    
+    print("Could not find skills container with any known XPath.")
+    capture_screenshot(driver, "skills_container_not_found")
+    print_page_source(driver)
     return None
 
-class AnyClickableElementToBeClicked(object):
-    def __call__(self, driver):
-        for element in driver.find_elements(By.XPATH,
-            "//*[not(ancestor::*[contains(@class, 'click-logging-disabled')]) "
-            "and not(contains(@class, 'click-logging-disabled'))]"
-        ):
-            if element.is_enabled() and element.is_displayed():
-                return element
-        return False
+def safe_find_elements(driver, username, by, value, timeout=10):
+    try:
+        elements = WebDriverWait(driver, timeout).until(
+            EC.presence_of_all_elements_located((by, value))
+        )
+        return elements
+    except TimeoutException:
+        print(f"Timeout while searching for elements: {value}")
+        return []
+    except WebDriverException as e:
+        print(f"WebDriverException while searching for elements: {value}")
+        print(f"Error: {str(e)}")
+        return []
+    
+    # Wait for the page to finish loading
+    try:
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'scaffold-finite-scroll')]"))
+        )
+    except TimeoutException:
+        print("Page load timeout. Proceeding anyway.")
+    
+    time.sleep(10)  # Wait additional time for any dynamic content to load
+    capture_screenshot(driver, "skills_page")
+    print_page_source(driver)
+    print("Current URL:", driver.current_url)
 
-def log_clicks_loop(driver, timeout=10):
-    """Enter a loop and log the XPaths of clicked elements. 
-    Wait for the specified timeout (default 10 seconds) for each click."""
+def clean_skill_text(text):
+    # Remove any text related to endorsements or assessments
+    text = re.sub(r'\d+\s+endorsements?', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Passed LinkedIn Skill Assessment', '', text, flags=re.IGNORECASE)
+    # Remove any text in parentheses (often contains additional info we don't want)
+    text = re.sub(r'\s*\([^)]*\)', '', text)
+    return text.strip()
+
+def get_skills(driver):
+    print("Attempting to extract skills...")
+    
+    # Wait for the skills section to load
+    try:
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//section[contains(@class, 'artdeco-card')]//div[contains(@class, 'pvs-list__container')]"))
+        )
+    except TimeoutException:
+        print("Timeout waiting for skills section to load.")
+        return []
+
+    # Scroll to load all skills
+    last_height = driver.execute_script("return document.body.scrollHeight")
     while True:
-        print(f"You have {timeout} seconds to click an element")
-        
-        # Inject the click listener
-        driver.execute_script("""
-            window.lastClickedElement = null;
-            document.addEventListener('click', function(e) {
-                window.lastClickedElement = e;
-            }, true);
-        """)
-        
-        # Wait for a click for the specified timeout
-        start_time = time.time()
-        click_event = None
-        while time.time() - start_time < timeout:
-            try:
-                click_event = driver.execute_script("return window.lastClickedElement;")
-                if click_event:
-                    # Get the XPath immediately after the click
-                    xpath = driver.execute_script("""
-                        var getXPath = """ + absoluteXPath_js_str + """
-                        return getXPath(arguments[0].target);
-                    """, click_event)
-                    
-                    if xpath:
-                        click_logger.log_click(xpath)
-                        logging.info(f"Clicked element: {xpath}")
-                    else:
-                        logging.warning("Unable to generate XPath for clicked element")
-                    
-                    # Reset the lastClickedElement
-                    driver.execute_script("window.lastClickedElement = null;")
-                    break
-            except Exception as e:
-                logging.error(f"Error processing clicked element: {str(e)}")
-            time.sleep(0.1)
-        
-        if not click_event:
-            logging.info(f"No element clicked within {timeout} seconds. Exiting loop.")
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        if new_height == last_height:
             break
+        last_height = new_height
 
-    # Remove the click listener when exiting the loop
-    driver.execute_script("""
-        document.removeEventListener('click', arguments[0]);
+    # Extract skills using JavaScript, preserving order
+    skills = driver.execute_script("""
+        var skillElements = document.querySelectorAll('section.artdeco-card div.pvs-list__container span.visually-hidden');
+        return Array.from(skillElements)
+            .map(el => el.textContent.trim())
+            .filter(text => text && !text.includes('experience') && !text.includes('endorsement'));
     """)
 
-def login(driver):
-    username = os.getenv("LINKEDIN_USERNAME")
-    password = os.getenv("LINKEDIN_PASSWORD")
-    
-    driver.get("https://www.linkedin.com/login")
-    
-    username_input = driver.find_element(By.ID, "username")
-    password_input = driver.find_element(By.ID, "password")
-    
-    username_input.send_keys(username)
-    password_input.send_keys(password)
-    
-    login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
-    login_button.click()
+    # Clean skills while preserving order
+    cleaned_skills = OrderedDict()
+    for skill in skills:
+        cleaned_skill = clean_skill_text(skill)
+        if cleaned_skill and cleaned_skill not in cleaned_skills:
+            cleaned_skills[cleaned_skill] = None
+
+    skills = list(cleaned_skills.keys())
+
+    if skills:
+        print(f"Found {len(skills)} unique skills:")
+        for i, skill in enumerate(skills, 1):
+            print(f"{i}. {skill}")
+        
+        # Save skills to a JSON file
+        with open('linkedin_skills.json', 'w') as f:
+            json.dump(skills, f, indent=2)
+        print("Skills saved to 'linkedin_skills.json'")
+    else:
+        print("No skills found.")
+        capture_screenshot(driver, "skills_not_found")
+        print_page_source(driver)
+
+    return skills
 
 def main():
-    service = Service('/usr/local/bin/chromedriver')
+    chrome_driver_path = os.getenv("CHROME_DRIVER_PATH")
+    email = os.getenv("LINKEDIN_EMAIL")
+    pswd = os.getenv("LINKEDIN_PSWD")
+    username = os.getenv("LINKEDIN_USERNAME")
+
+    if not all([chrome_driver_path, email, pswd, username]):
+        print("Please ensure all environment variables are set.")
+        return
+
+    service = Service(chrome_driver_path)
     driver = webdriver.Chrome(service=service)
+    
     try:
-        # Initialize the WebDriver (example with Chrome)
-        login(driver)
-        log_clicks_loop(driver, timeout=100)
+        login(driver, email, pswd)
+        go_to_skills_page(driver, username)
+        
+        print("Current URL:", driver.current_url)
+        
+        skills = get_skills(driver)
+        
+        if skills:
+            print(f"Successfully extracted {len(skills)} skills.")
+        else:
+            print("Failed to extract any skills.")
+        
+        # Capture final state
+        capture_screenshot(driver, "final_state")
+        print_page_source(driver)
+    
+    except Exception as e:
+        print(f"An unexpected error occurred: {str(e)}")
+        capture_screenshot(driver, "error_state")
+        print_page_source(driver)
+    
     finally:
         driver.quit()
 
