@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Scraper",
+            "name": "Python: linkedin_scraper",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/scraper.py",
+            "program": "${workspaceFolder}/linkedin_scraper.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "envFile": "${workspaceFolder}/.env"

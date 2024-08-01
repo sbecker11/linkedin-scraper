@@ -1,0 +1,32 @@
+def process_skills(driver):
+    try:
+        skill_elements = driver.find_elements(By.CSS_SELECTOR, ".artdeco-list__item")
+
+        for skill in skill_elements:
+            skill_name = skill.find_element(By.CSS_SELECTOR, ".t-bold").text.split('\n')[0].strip()
+            
+            # Click edit button
+            edit_button_parent = driver.find_element(By.CSS_SELECTOR, f"svg[aria-label='Edit {skill_name}']")
+            driver.execute_script("arguments[0].click();", edit_button_parent)
+            time.sleep(2)  # Wait for modal to open
+
+            selected_items = []
+
+            # Check each section
+            sections = ["Experience", "Education", "Licenses & certifications", "Projects", "Patents"]
+            for section in sections:
+                try:
+                    section_element = WebDriverWait(driver, 20).until(
+                        EC.presence_of_element_located((By.XPATH, f"//h3[text()='{section}']"))
+                    )
+                    items = section_element.find_elements(By.XPATH, "./following-sibling::ul/li")
+                    
+                    for item in items:
+                        # Your logic for processing each item
+                        print(f"{section}: {item.text}")
+                except TimeoutException:
+                    logging.warning(f"Section {section} not found or took too long to load.")
+    except NoSuchElementException as e:
+        logging.error("Element not found: %s", e)
+    except Exception as e:
+        logging.error("An error occurred: %s", e)
