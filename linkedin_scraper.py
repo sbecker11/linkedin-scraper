@@ -13,6 +13,10 @@ import time
 import os
 import re
 import json
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 def capture_screenshot(driver, filename):
     driver.save_screenshot(f"{filename}.png")
@@ -112,17 +116,161 @@ def safe_find_elements(driver, by, value, timeout=10):
         print(f"Error: {str(e)}")
         return []
     
+def find_edit_button_by_xpath(driver, edit_button_xpath):
+    try:
+        edit_button = driver.find_element(By.XPATH, edit_button_xpath)
+        return edit_button
+    except NoSuchElementException:
+        logger.error(f"Edit button not found with XPath: {edit_button_xpath}")
+        return None
+
+def find_edit_button_by_id(driver, edit_button_id):
+    try:
+        edit_button = driver.find_element(By.ID, edit_button_id)
+        return edit_button
+    except NoSuchElementException:
+        logger.error(f"Edit button not found with ID: {edit_button_id}")
+        return None
+
+def process_skill_modal(driver, skill_name):
+    logger.info(f"Processing modal for skill: {skill_name}")
+    try:
+        # Wait for the modal to appear
+        modal = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//div[@role='dialog']"))
+        )
+        
+        # Find all checkboxes in the modal
+        checkboxes = modal.find_elements(By.XPATH, ".//input[@type='checkbox']")
+        
+        skill_data = {
+            "name": skill_name,
+            "associated_items": []
+        }
+        
+        for checkbox in checkboxes:
+            if checkbox.is_selected():
+                # If checkbox is checked, get the associated label text
+                label = checkbox.find_element(By.XPATH, "./following-sibling::label")
+                item_text = label.text.strip()
+                skill_data["associated_items"].append(item_text)
+                logger.info(f"Associated item for {skill_name}: {item_text}")
+        
+        logger.info(f"Processed {len(skill_data['associated_items'])} associated items for {skill_name}")
+        return skill_data
+    
+    except TimeoutException:
+        logger.error(f"Timeout waiting for modal to appear for skill: {skill_name}")
+    except NoSuchElementException as e:
+        logger.error(f"Element not found in modal for skill {skill_name}: {str(e)}")
+    except Exception as e:
+        logger.error(f"Error processing modal for skill {skill_name}: {str(e)}")
+    
+    return None
+
+def close_skill_modal(driver):
+    logger.info("Attempting to close the modal")
+    try:
+        # Wait for the close button to be clickable
+        close_button = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Dismiss']"))
+        )
+        
+        # Click the close button
+        close_button.click()
+        logger.info("Modal closed successfully")
+        
+        # Wait for the modal to disappear
+        WebDriverWait(driver, 10).until(
+            EC.invisibility_of_element_located((By.XPATH, "//div[@role='dialog']"))
+        )
+        
+    except TimeoutException:
+        logger.error("Timeout waiting for close button or for modal to disappear")
+    except NoSuchElementException:
+        logger.error("Close button not found")
+    except Exception as e:
+        logger.error(f"Error closing modal: {str(e)}")
+        
+    # Add a short pause to ensure the modal is fully closed
+    time.sleep(1)
+
+def close_skill_modal(driver):
+    logger.info("Attempting to close the modal")
+    try:
+        # Wait for the close button to be clickable
+        close_button = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Dismiss']"))
+        )
+        
+        # Click the close button
+        close_button.click()
+        logger.info("Modal closed successfully")
+        
+        # Wait for the modal to disappear
+        WebDriverWait(driver, 10).until(
+            EC.invisibility_of_element_located((By.XPATH, "//div[@role='dialog']"))
+        )
+        
+    except TimeoutException:
+        logger.error("Timeout waiting for close button or for modal to disappear")
+    except NoSuchElementException:
+        logger.error("Close button not found")
+    except Exception as e:
+        logger.error(f"Error closing modal: {str(e)}")
+        
+    # Add a short pause to ensure the modal is fully closed
+    time.sleep(1)
+
+
+def process_skill(driver, skill):
+    skill_name = skill['name']
+    skill_element_xpath = skill['skillElementXPath']
+    edit_button_xpath = skill['editButtonXPath']
+    edit_button_id = skill['editButtonId']
+
+    logger.info(f"Processing skill: {skill_name}")
+
+    # Find the edit button (try XPath first, then ID if XPath fails)
+    edit_button = find_edit_button_by_xpath(driver, edit_button_xpath)
+    if edit_button is None:
+        edit_button = find_edit_button_by_id(driver, edit_button_id)
+
+    if edit_button:
+        try:
+            # Scroll the button into view
+            driver.execute_script("arguments[0].scrollIntoView(true);", edit_button)
+            time.sleep(0.5)  # Short pause after scrolling
+
+            # Click the edit button
+            edit_button.click()
+            logger.info(f"Clicked edit button for skill: {skill_name}")
+
+            # Process the modal (you'll need to implement this part)
+            process_skill_modal(driver, skill_name)
+
+            # Close the modal (you'll need to implement this part)
+            close_skill_modal(driver)
+
+        except Exception as e:
+            logger.error(f"Error processing skill {skill_name}: {str(e)}")
+    else:
+        logger.error(f"Could not find edit button for skill: {skill_name}")
+
+def process_all_skills(driver, skills):
+    for skill in skills:
+        process_skill(driver, skill)
+
 
 def get_skills(driver):
-    print("Attempting to extract skills...")
+    logger.info("Attempting to extract skills...")
     
-    # Wait for the skills section to load
     try:
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "//section[contains(@class, 'artdeco-card')]"))
         )
     except TimeoutException:
-        print("Timeout waiting for skills section to load.")
+        logger.warning("Timeout waiting for skills section to load.")
         return []
 
     # Scroll to load all skills
@@ -135,43 +283,63 @@ def get_skills(driver):
             break
         last_height = new_height
 
-    # Extract skills using JavaScript, focusing on elements with both skill text and edit button
+    # Extract skills using JavaScript with more detailed information
     skills = driver.execute_script("""
+        function getXPath(element) {
+            if (element.id !== '')
+                return 'id("' + element.id + '")';
+            if (element === document.body)
+                return element.tagName;
+
+            var ix = 0;
+            var siblings = element.parentNode.childNodes;
+            for (var i = 0; i < siblings.length; i++) {
+                var sibling = siblings[i];
+                if (sibling === element)
+                    return getXPath(element.parentNode) + '/' + element.tagName + '[' + (ix + 1) + ']';
+                if (sibling.nodeType === 1 && sibling.tagName === element.tagName)
+                    ix++;
+            }
+        }
+
         var skillContainers = document.querySelectorAll('div.display-flex.flex-row.justify-space-between');
         return Array.from(skillContainers).map(container => {
             var skillElement = container.querySelector('a[data-field="skill_page_skill_topic"] span[aria-hidden="true"]');
             var editButton = container.querySelector('a[id^="navigation-add-edit-deeplink-edit-skills"]');
             if (skillElement && editButton) {
-                return skillElement.textContent.trim();
+                var skillXPath = getXPath(skillElement);
+                // Only include skills with "profileTabSection-ALL-SKILLS" in their XPath
+                if (skillXPath.includes("profileTabSection-ALL-SKILLS")) {
+                    return {
+                        name: skillElement.textContent.trim(),
+                        skillElementXPath: getXPath(skillElement),
+                        editButtonId: editButton.id,
+                        editButtonXPath: getXPath(editButton)
+                    };
+                }
             }
             return null;
         }).filter(skill => skill);
     """)
 
     if skills:
-        print(f"Found {len(skills)} skills:")
+        logger.info(f"Found {len(skills)} skills:")
         for i, skill in enumerate(skills, 1):
-            print(f"{i}. {skill}")
+            logger.info(f"{i}. {skill['name']}")
+            logger.debug(f"   Skill Element XPath: {skill['skillElementXPath']}")
+            logger.debug(f"   Edit Button ID: {skill['editButtonId']}")
+            logger.debug(f"   Edit Button XPath: {skill['editButtonXPath']}")
         
         # Save skills to a JSON file
-        with open('linkedin_skills.json', 'w') as f:
+        with open('linkedin_skills_detailed.json', 'w') as f:
             json.dump(skills, f, indent=2)
-        print("Skills saved to 'linkedin_skills.json'")
+        logger.info("Detailed skills information saved to 'linkedin_skills_detailed.json'")
     else:
-        print("No skills found.")
+        logger.warning("No skills found.")
         capture_screenshot(driver, "skills_not_found")
         print_page_source(driver)
 
     return skills
-
-def clean_skill_text(text):
-    # Remove any text related to endorsements or assessments
-    text = re.sub(r'\d+\s+endorsements?', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'Passed LinkedIn Skill Assessment', '', text, flags=re.IGNORECASE)
-    # Remove any text in parentheses (often contains additional info we don't want)
-    text = re.sub(r'\s*\([^)]*\)', '', text)
-    return text.strip()
-
 
 def main():
     chrome_driver_path = os.getenv("CHROME_DRIVER_PATH")
@@ -196,12 +364,14 @@ def main():
         
         if skills:
             print(f"Successfully extracted {len(skills)} skills.")
+            process_all_skills(driver, skills)
+
         else:
             print("Failed to extract any skills.")
-        
+
         # Capture final state
-        capture_screenshot(driver, "final_state")
-        print_page_source(driver)
+        # capture_screenshot(driver, "final_state")
+        # print_page_source(driver)
     
     except Exception as e:
         print(f"An unexpected error occurred: {str(e)}")

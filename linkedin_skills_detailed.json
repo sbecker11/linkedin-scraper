@@ -1,0 +1,590 @@
+[
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Application Migrations",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-0\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "AWS DynamoDB",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-1\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "AWS Elastic Beanstalk",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-2\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "AWS Glue",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-3\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "AWS Lambda",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-4\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "AWS SageMaker",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-5\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "AWS SimpleDB",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-6\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Agile Methodologies",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-7\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Algorithms",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-8\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Amazon Aurora",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-9\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Amazon CloudWatch",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-10\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Amazon Kinesis",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-11\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Amazon EC2",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-12\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Amazon QuickSight",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-13\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Amazon Redshift",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-14\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Amazon S3",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-15\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Ansible",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-16\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Apache Airflow",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-17\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Apache Kafka",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-18\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Applied Machine Learning",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-19\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Azure Databricks",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-20\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Business Requirements",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-21\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "C (Programming Language)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-22\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Computer Vision",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-23\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Continuous Integration and Continuous Delivery (CI/CD)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-24\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Convolutional Neural Networks (CNN)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-25\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Cyber Security",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-26\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Daily Scrum",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-27\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Data Architecture",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-28\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Data Build Tool (DBT)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-29\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Data Engineering",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-30\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Data Governance",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-31\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Data Modeling",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-32\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Database Design",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-33\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Databases",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-34\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "DevOps",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-35\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Dimensional Modeling",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-36\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Docker",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-37\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Docker Compose",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-38\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Waterfall Project Management",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-39\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Extract, Transform, Load (ETL)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-40\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Full-Stack Development",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-41\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Functional Requirements",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-42\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Git",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-43\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "GitHub",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-44\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Integration Testing",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-45\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Jira",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-46\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Martech",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-47\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Sprints",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-48\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Software as a Service (SaaS)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-49\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Sprint Review",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-50\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Sprint Retrospective",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-51\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Sprint Planning",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-52\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Technical Specs",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-53\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Unit Testing",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-54\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "User Acceptance Testing",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-55\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Visio",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-56\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Front-End Development",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-57\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "GitHub Actions",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-58\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Google BigQuery",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-59\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "HTML",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-60\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Java",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-61\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "JavaScript",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-62\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Jenkins",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-63\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Key Performance Indicators",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-64\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Kubernetes",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-65\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Leadership",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-66\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Linux",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-67\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Machine Learning",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-68\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Machine Learning: Classification",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-69\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Machine Learning: Regression",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-70\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Mentoring",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-71\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Microsoft Excel",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-72\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Microsoft Project",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-73\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Node.js",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-74\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "OpenAI Products",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-75\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Oracle Database",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-76\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Pandas (Software)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-77\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "PostgreSQL",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-78\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Presentation Skills",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-79\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Project Risk",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-80\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Python (Programming Language)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-81\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "PySpark EMR",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-82\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "REST APIs",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-83\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Scrum",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-84\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Spring",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-85\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Spring Boot",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-86\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Spring MVC",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-87\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "SQL",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-88\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Stakeholder Management",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-89\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Statistical Data Analysis",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-90\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Strategic Planning",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-91\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Software Development Life Cycle (SDLC)",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-92\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Snowflake",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-93\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Tableau",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-94\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "technical project manager",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-95\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Terraform",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-96\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  },
+  {
+    "editButtonId": "navigation-add-edit-deeplink-edit-skills",
+    "editButtonXPath": "id(\"navigation-add-edit-deeplink-edit-skills\")",
+    "name": "Vue.js",
+    "skillElementXPath": "id(\"profilePagedListComponent-ACoAAAAGGlEBNzaJ0-HITqvXcFeudnEml6EgU0g-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-97\")/DIV[1]/DIV[1]/DIV[2]/DIV[1]/A[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]"
+  }
+]
