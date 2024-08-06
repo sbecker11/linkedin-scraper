@@ -94,7 +94,38 @@ def find_skill_containers(driver):
         ]
         
         if new_all_skills_containers:
-            skill_containers.extend(new_all_skills_containers)
+            for container in new_all_skills_containers:
+                skill_containers.append(container)
+                # Try to find the skill name from the SVG aria-label
+                try:
+                    # Step 1: Find the div with class "pvs-navigation__icon"
+                    icon_div = container.find_element(By.XPATH, ".//div[@class='pvs-navigation__icon']")
+                    if icon_div is None:
+                        logger.warn(f"Could not find pvs-navigation__icon div for container ID: {container.get_attribute('id')}")
+                    else:
+                        logger.info(f"Found pvs-navigation__icon div for container ID: {container.get_attribute('id')}")
+        
+                        # Step 2: Find the svg element within the div
+                        svg_element = icon_div.find_element(By.XPATH, "./svg[@aria-label]")
+                        if svg_element is None:
+                            logger.warn(f"Could not find SVG element within pvs-navigation__icon div for container ID: {container.get_attribute('id')}")
+                        else:
+                            logger.info(f"Found SVG element within pvs-navigation__icon div for container ID: {container.get_attribute('id')}")
+                        
+                             # Extract and process the skill name
+                            skill_name = svg_element.get_attribute('aria-label')
+                            if skill_name is None:
+                                logger.warning("Could not extract skill name from SVG element")
+                            else:
+                                if skill_name.startswith("Edit "):
+                                    skill_name = skill_name[5:]  # Remove "Edit " prefix
+                                logger.info(f"Found new ALL-SKILLS container. Skill: {skill_name}")
+
+                except NoSuchElementException:
+                    logger.warning("Could not find SVG element with aria-label for a skill container")
+                except Exception as e:
+                    logger.error(f"Error extracting skill name: {str(e)}")
+            
             logger.info(f"Found {len(new_all_skills_containers)} new ALL-SKILLS containers. Total: {len(skill_containers)}")
             scroll_attempts = 0  # Reset scroll attempts if we found new containers
         else:
