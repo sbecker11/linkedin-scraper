@@ -116,35 +116,72 @@ def capture_page_source(driver, filename) -> None:
         file.write(driver.page_source)
     logger.info(f"Page source saved as {filename}")
 
-def process_edit_skill_modal(driver, skill_name, edit_skill_anchor_tag_element):
-    logger.info("Attempting to process_edit_skill_modal")
+def scroll_to_skill(driver, skill_name):
     try:
-        edit_skill_anchor_tag_element.click();
-
-        edit_skill_modal = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, "edit-skill-modal")) 
-        )
+        # Locate the skill element by its name
+        skill_element = driver.find_element_by_xpath(f"//span[text()='{skill_name}']")
+        
+        # Get the position of the skill element
+        skill_position = driver.execute_script("return arguments[0].getBoundingClientRect().top + window.scrollY;", skill_element)
+        
+        # Scroll to the skill element's position
+        driver.execute_script("window.scrollTo(0, arguments[0]);", skill_position)
         time.sleep(1)
         
-        # list all selected items
+        logger.info(f"{skill_name} is now in view.")
+    except Exception as e:
+        logger.error(f"An error occurred while scrolling to {skill_name}: {e}")
+
+
+def process_skill_modal(driver, skill_name):
+    try:
+        # scroll skill listing page to make this skill_name visible
+        scroll_to_skill(driver, skill_name)
+        time.sleep(3)          
+
+        # prompt user to click the edit skill link from the skill listing page
+        logger.info(f"click {skill_name}")
+        
+        # now pause for up to 15 seconds for user to click the edit_skill_link 
+        # and the edit_skill_modal appears
+        # the modal has "pe-edit-form-page__modal" as one of its class names
+        edit_skill_modal = WebDriverWait(driver, 15).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "pe-edit-form-page__modal")) 
+        )
+        # wait until the modal appears
+        time.sleep(5)          
+        
+        # scroll vertically to the bottom of the modal to load all selected items
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(5)
+        
+        # find all selected items in the modal
         selected_items = edit_skill_modal.find_elements(By.CLASS_NAME, "selected-item")
         logger.info(f"found {len(selected_items)} selected items")
-        for item in selected_items:
-            logger.info(f"Selected item: {item.text}")
-            
-        # find and click the close button
-        close_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Close']")) 
+              
+        # scroll to the top to make the dismiss button visible
+        driver.execute_script("window.scrollTo(0, 0);")
+        time.sleep(5)
+        
+        # the modal's dismiss button has aria-label="Dismiss" 
+        dismiss_button = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Dismiss']")) 
         )
-        close_button.click()
-        logger.info(f"Successfully processed_edit_skill_modal for skill_name: {skill_name}")
+        # if dismiss is not found in modal then raise an exception and exit
+        if dismiss_button is None:
+            raise Exception("dismiss_button not found in modal")
+        dismiss_button.click()
+        
+        logger.info(f"Successfully finished process_skill_modal for skill_name: {skill_name}")
+        return selected_items
         
     except Exception as e:
-        logger.error(f"Error processing edit_skill_modal for skill_name: {skill_name} exception:{str(e)}")    
+        logger.error(f"Error process_skill_modal for skill_name: {skill_name} exception:{str(e)}")    
 
 def find_skill_containers(driver):
     logger.info("Attempting to find all skill containers...")
     skill_containers = []
+    skills = []
     last_height = driver.execute_script("return document.body.scrollHeight")
     scroll_attempts = 0
     max_scroll_attempts = 10  # Adjust this value as needed
@@ -192,22 +229,10 @@ def find_skill_containers(driver):
                                     logger.warning(f"Could not find skill_name in pattern: {repr(pattern)}")
                                 else:
                                     logger.info(f"!!! Found skill_name: [{skill_name}]")
+                                    skills.append(skill_name)
+                                    selected_items = process_skill_modal(driver, skill_name)
+                                    logger.info(f"skill:{skill_name} has {len(selected_items)} selected_items")
                                     
-                                    # now find the first anchor tag in the innerHtml of the grand parent of  icon_div
-                                    icon_div_parent = icon_div.find_element(By.XPATH, "./..")
-                                    icon_div_grandparent = icon_div_parent.find_element(By.XPATH, "./..")
-                                    icon_div_grandparent_innerHtml = icon_div_grandparent.get_attribute('innerHTML')
-                                    
-                                    soup = BeautifulSoup(icon_div_grandparent_innerHtml, 'html.parser')
-                                    anchor_tag_element = soup.find("a")
-                                    if anchor_tag_element \
-                                        and isinstance(anchor_tag_element, Tag) \
-                                        and anchor_tag_element.name == 'a' \
-                                        and anchor_tag_element.has_attr('href') :
-                                        logger.info(f"Clickable anchor tag found: {anchor_tag_element}")
-                                        process_edit_skill_modal(driver, skill_name, anchor_tag_element)
-                                    else:
-                                        logger.warning(f"No clickable anchor_tag_elements: {anchor_tag_element} not found.")
 
                             else:
                                 logger.warning(f"Could not find pattern: {repr(pattern)} in icon_div_innerHtml")
@@ -222,6 +247,10 @@ def find_skill_containers(driver):
                                 if skill_name.startswith("Edit "):
                                     skill_name = skill_name[5:]  # Remove "Edit " prefix
                                 logger.info(f"Found new ALL-SKILLS container. Skill: {skill_name}")
+                                skills.append(skill_name)
+                                selected_items = process_skill_modal(driver, skill_name)
+                                logger.info(f"skill:{skill_name} has {len(selected_items)} selected_items")
+
 
                 except NoSuchElementException:
                     logger.warning(f"find_element pvs-navigation__icon div fo skill container Skill: {skill_name} raised NoSuchElementException")
@@ -254,8 +283,8 @@ def find_skill_containers(driver):
         except NoSuchElementException:
             pass  # No "Show more" button found, continue scrolling
 
-    logger.info(f"Total unique ALL-SKILLS containers found: {len(skill_containers)}")
-    return skill_containers
+    logger.info(f"Total skills found {len(skills)}")
+    return skills
 
 def main():
     chrome_driver_path = os.getenv("CHROME_DRIVER_PATH")
