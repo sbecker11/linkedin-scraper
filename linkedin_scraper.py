@@ -10,7 +10,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
-
+from selenium.webdriver.remote.webelement import WebElement
+from bs4 import BeautifulSoup
+from bs4.element import Tag
 import time
 import logging
 
@@ -58,7 +60,13 @@ def login(driver, email, pswd):
                 EC.presence_of_element_located((By.ID, "input__email_verification_pin"))
             )
             # Assume you have a function to get the verification code
-            verification_code = get_verification_code()  # You need to implement this
+            def get_verification_code():
+                # Implement the logic to get the verification code
+                pass
+            
+            # ...
+            
+            verification_code = "123456"  # Replace with the actual logic to get the verification code
             challenge_input.send_keys(verification_code)
             
             submit_button = WebDriverWait(driver, 10).until(
@@ -108,6 +116,32 @@ def capture_page_source(driver, filename) -> None:
         file.write(driver.page_source)
     logger.info(f"Page source saved as {filename}")
 
+def process_edit_skill_modal(driver, skill_name, edit_skill_anchor_tag_element):
+    logger.info("Attempting to process_edit_skill_modal")
+    try:
+        edit_skill_anchor_tag_element.click();
+
+        edit_skill_modal = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "edit-skill-modal")) 
+        )
+        time.sleep(1)
+        
+        # list all selected items
+        selected_items = edit_skill_modal.find_elements(By.CLASS_NAME, "selected-item")
+        logger.info(f"found {len(selected_items)} selected items")
+        for item in selected_items:
+            logger.info(f"Selected item: {item.text}")
+            
+        # find and click the close button
+        close_button = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Close']")) 
+        )
+        close_button.click()
+        logger.info(f"Successfully processed_edit_skill_modal for skill_name: {skill_name}")
+        
+    except Exception as e:
+        logger.error(f"Error processing edit_skill_modal for skill_name: {skill_name} exception:{str(e)}")    
+
 def find_skill_containers(driver):
     logger.info("Attempting to find all skill containers...")
     skill_containers = []
@@ -147,12 +181,11 @@ def find_skill_containers(driver):
                         if svg_element is None:
                             # look for teh svg within  the innerHTML of the div
                             icon_div_innerHtml = icon_div.get_attribute('innerHTML')
-                            logger.info(f"icon_div_innerHtml: {icon_div_innerHtml}")
                             pattern = r'aria-label="Edit\s*(.*?)"'
                             match = re.search(pattern, icon_div_innerHtml)
 
                             if match:
-                                logger.info(f"Found pattern: {repr(pattern)} in icon_div_innerHtml: {icon_div_innerHtml}")
+                                logger.info(f"Found pattern: {repr(pattern)} in icon_div_innerHtml")
 
                                 skill_name = match.group(1)
                                 if skill_name is None:
@@ -160,9 +193,22 @@ def find_skill_containers(driver):
                                 else:
                                     logger.info(f"!!! Found skill_name: [{skill_name}]")
                                     
-                                    # now find anchor tag in icon_div_innerHtml
-                                    logger.info(f"find anchor tag inicon_div_innerHtml: {icon_div_innerHtml}")
-                                    pass
+                                    # now find the first anchor tag in the innerHtml of the grand parent of  icon_div
+                                    icon_div_parent = icon_div.find_element(By.XPATH, "./..")
+                                    icon_div_grandparent = icon_div_parent.find_element(By.XPATH, "./..")
+                                    icon_div_grandparent_innerHtml = icon_div_grandparent.get_attribute('innerHTML')
+                                    
+                                    soup = BeautifulSoup(icon_div_grandparent_innerHtml, 'html.parser')
+                                    anchor_tag_element = soup.find("a")
+                                    if anchor_tag_element \
+                                        and isinstance(anchor_tag_element, Tag) \
+                                        and anchor_tag_element.name == 'a' \
+                                        and anchor_tag_element.has_attr('href') :
+                                        logger.info(f"Clickable anchor tag found: {anchor_tag_element}")
+                                        process_edit_skill_modal(driver, skill_name, anchor_tag_element)
+                                    else:
+                                        logger.warning(f"No clickable anchor_tag_elements: {anchor_tag_element} not found.")
+
                             else:
                                 logger.warning(f"Could not find pattern: {repr(pattern)} in icon_div_innerHtml")
                         else:
